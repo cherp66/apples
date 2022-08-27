@@ -16,6 +16,22 @@ class ApiController extends Controller
 {
     public $enableCsrfValidation = false;
 
+/**
+ * @OA\Info(title="Тестовое задание", version="0.1")
+ *
+ *  @OA\Server(
+ *      url="http://test.api.inkz/api/v1/",
+ *      description="API для яблок"
+ * )
+ *
+ * @OA\Tag(
+ *     name="Apples",
+ *     description="Яблоки"
+ * )
+ *
+ */
+
+
     /**
      * @return array|array[]
      */
