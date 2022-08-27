@@ -1,0 +1,2834 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Непросто диджитал",
+        "version": "0.1"
+    },
+    "servers": [
+        {
+            "url": "http://my-default-host.com",
+            "description": "L5 Swagger OpenApi dynamic host server"
+        },
+        {
+            "url": "https://staging-api.sknt.ai//api/v1",
+            "description": "L5 Swagger OpenApi Server"
+        }
+    ],
+    "paths": {
+        "/platforms/sknt": {
+            "get": {
+                "tags": [
+                    "Sknt_link"
+                ],
+                "summary": "sknt links",
+                "description": "Генерация sknt links перед созданием новой позиции рекламы",
+                "operationId": "genSkntLinks",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "success": true,
+                                            "data": {
+                                                "sknt_id": "#a2",
+                                                "links": {
+                                                    "vk": "sknt_id|#a2|cid|{campaign_id}|aid|{ad_id}|key|{keyword}|src|{platform}",
+                                                    "my_target": "sknt_id|#a2|cid|{{campaign_id}}|aid|{{banner_id}}|key|{{search_phrase}}",
+                                                    "yandex_direct": "sknt_id|#a2|cid|{campaign_id}|gid|{gbid}|aid|{ad_id}|key|{phrase_id}|src|{source_type}|dmn|{source}|pos|{position_type}_{position}"
+                                                }
+                                            },
+                                            "message": "Records returned.",
+                                            "statusCode": 200
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/clients/???": {
+            "post": {
+                "tags": [
+                    "Clients"
+                ],
+                "summary": "\n    App\\Http\\Controllers\\API\\Client\\Campaign\\Host\\AdsHostsController::index()",
+                "operationId": "indexHost",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Не авторизован"
+                    },
+                    "422": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "System error"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "422"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/clients/??": {
+            "post": {
+                "tags": [
+                    "Clients"
+                ],
+                "summary": "\n    App\\Http\\Controllers\\API\\Client\\Campaign\\Host\\AdsHostsController::index_all()",
+                "operationId": "indexallHost",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Не авторизован"
+                    },
+                    "422": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "System error"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "422"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/clients/?": {
+            "post": {
+                "tags": [
+                    "Clients"
+                ],
+                "summary": "\n    App\\Http\\Controllers\\API\\Client\\Campaign\\Host\\AdsHostsController::show()",
+                "operationId": "showHost",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Не авторизован"
+                    },
+                    "422": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "System error"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "422"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/clients/{client_id}/campaign/{campaign_id}/hosts": {
+            "post": {
+                "tags": [
+                    "Clients"
+                ],
+                "summary": "Сохранение позиции\n    App\\Http\\Controllers\\API\\Client\\Campaign\\Host\\AdsHostsController::store()",
+                "operationId": "storeHost",
+                "requestBody": {
+                    "description": "name - названия создаваемой группы объявлений.\n    ads_ids - массив идентификаторов объявлений, которые нужно сгруппировать.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Название"
+                                            },
+                                            "platformsId": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "paymentModelsId": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "volume": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "budget": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "marginality": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "dateFrom": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "dateTo": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "dateFromInput": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "dateFinishInput": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "link": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "shortLink": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "skntId": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "skntLink": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "logo": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05.png"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Record updated."
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован"
+                    },
+                    "422": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "System error"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "422"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/clients": {
+            "post": {
+                "tags": [
+                    "Clients"
+                ],
+                "summary": "\n    App\\Http\\Controllers\\API\\Client\\Campaign\\Host\\AdsHostsController::update()",
+                "operationId": "updateHost",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Не авторизован"
+                    },
+                    "422": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "System error"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "422"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/clients/{client_id}/campaign/{campaign_id}/logo": {
+            "post": {
+                "tags": [
+                    "Clients"
+                ],
+                "summary": "Загрузка логотипа\n      App\\Http\\Controllers\\API\\Client\\Campaign\\Host\\AdsHostsController::uploadLogo()",
+                "operationId": "uploadLogo",
+                "parameters": [
+                    {
+                        "name": "logo",
+                        "in": "path",
+                        "description": "Картинка для логотипа",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "binary"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Record updated."
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "filename": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05.png"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован"
+                    },
+                    "422": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "System error"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "422"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "groups/ads/create": {
+            "post": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Создание группы объявлений\n    App\\Http\\Controllers\\API\\Groups\\AdsGroupsController::create()",
+                "operationId": "createGroup",
+                "requestBody": {
+                    "description": "name - названия создаваемой группы объявлений.\n    ads_ids - массив идентификаторов объявлений, которые нужно сгруппировать.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Группа1"
+                                            },
+                                            "project_id": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "position_id": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "ads_ids": {
+                                                "example": [
+                                                    "914c8a10-7b8e-495f-a5f3-8dcc5e963817",
+                                                    "621b0071-28de-40e8-930e-25308e345a05"
+                                                ]
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "id - идентификатор созданной группы",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Record created."
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован"
+                    },
+                    "422": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Error"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "text": {
+                                                    "type": "string",
+                                                    "example": "System error"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "groups/ads/rename": {
+            "post": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Переименование группы\n    App\\Http\\Controllers\\API\\Groups\\AdsGroupsController::rename()",
+                "operationId": "renameGroup",
+                "requestBody": {
+                    "description": "id - идентификатор группы, которую нужно переименовать.\n    name - новое имя группы объявлений.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Новая группа"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Record updated."
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован"
+                    },
+                    "422": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "System error"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "422"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "groups/ads/add": {
+            "post": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Добавление объявления в группу\n    App\\Http\\Controllers\\API\\Groups\\AdsGroupsController::add()",
+                "operationId": "addToGroup",
+                "requestBody": {
+                    "description": "id - идентификатор группы, в которую добавляется объявление.\n    ads_id- Идентификатор добавляемого объявления.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "ads_id": {
+                                                "type": "string",
+                                                "example": "0b0e8c66-9356-47ad-90d9-e1d0504e6764"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Record updated."
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован"
+                    },
+                    "422": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "System error"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "422"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "groups/ads/delete": {
+            "post": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Удаление объявления из группы\n    App\\Http\\Controllers\\API\\Groups\\AdsGroupsController::delete()",
+                "operationId": "deleteFromGroup",
+                "requestBody": {
+                    "description": "id - идентификатор группы, из которой удаляется объявление.\n    ads_id- Идентификатор удаляемого объявления.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "ads_id": {
+                                                "type": "string",
+                                                "example": "0b0e8c66-9356-47ad-90d9-e1d0504e6764"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Record updated."
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован"
+                    },
+                    "422": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "System error"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "422"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "groups/ads/remove": {
+            "post": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Удаление группы (разгруппировка)\n    App\\Http\\Controllers\\API\\Groups\\AdsGroupsController::remove()",
+                "operationId": "removeGroup",
+                "requestBody": {
+                    "description": "id - идентификатор удаляемой группы",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Record updated."
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован"
+                    },
+                    "422": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "System error"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "422"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "groups/campaign/create": {
+            "post": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Создание группы кампаний\n    App\\Http\\Controllers\\API\\Groups\\CampaignGroupsController::create()",
+                "operationId": "createCampaignGroup",
+                "requestBody": {
+                    "description": "name - названия создаваемой группы кампаний.\n    ads_ids - массив идентификаторов кампаний, которые нужно сгруппировать.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Группа1"
+                                            },
+                                            "project_id": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "position_id": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "ads_ids": {
+                                                "example": [
+                                                    "914c8a10-7b8e-495f-a5f3-8dcc5e963817",
+                                                    "621b0071-28de-40e8-930e-25308e345a05"
+                                                ]
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "id - идентификатор созданной группы",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Record created."
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован"
+                    },
+                    "422": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Error"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "text": {
+                                                    "type": "string",
+                                                    "example": "System error"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "groups/campaign/rename": {
+            "post": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Переименование группы\n    App\\Http\\Controllers\\API\\Groups\\CampaignGroupsController::rename()",
+                "operationId": "renameCampaignGroup",
+                "requestBody": {
+                    "description": "id - идентификатор группы, которую нужно переименовать.\n    name - новое имя группы объявлений.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Новая группа"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Record updated."
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован"
+                    },
+                    "422": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "System error"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "422"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "groups/campaign/add": {
+            "post": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Добавление кампании в группу\n    App\\Http\\Controllers\\API\\Groups\\CampaignGroupsController::add()",
+                "operationId": "addCampaignToGroup",
+                "requestBody": {
+                    "description": "id - идентификатор группы, в которую добавляется объявление.\n    ads_id- Идентификатор добавляемого объявления.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "ads_id": {
+                                                "type": "string",
+                                                "example": "0b0e8c66-9356-47ad-90d9-e1d0504e6764"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Record updated."
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован"
+                    },
+                    "422": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "System error"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "422"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "groups/campaign/delete": {
+            "post": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Удаление кампании из группы\n    App\\Http\\Controllers\\API\\Groups\\CampaignGroupsController::delete()",
+                "operationId": "deleteCampaignFromGroup",
+                "requestBody": {
+                    "description": "id - идентификатор группы, из которой удаляется объявление.\n    ads_id- Идентификатор удаляемого объявления.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            },
+                                            "ads_id": {
+                                                "type": "string",
+                                                "example": "0b0e8c66-9356-47ad-90d9-e1d0504e6764"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Record updated."
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован"
+                    },
+                    "422": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "System error"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "422"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "groups/campaign/remove": {
+            "post": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Удаление группы (разгруппировка)\n    App\\Http\\Controllers\\API\\Groups\\CampaignGroupsController::remove()",
+                "operationId": "removeCampaignGroup",
+                "requestBody": {
+                    "description": "id - идентификатор удаляемой группы",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Record updated."
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован"
+                    },
+                    "422": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "System error"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "422"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "platforms/custom/report": {
+            "post": {
+                "tags": [
+                    "Platforms"
+                ],
+                "summary": "Загрузка отчета в виде xls(x)\r\n                    App\\Http\\Controllers\\API\\Platforms\\CustomDataController::uploadReport()",
+                "operationId": "uploadReport",
+                "parameters": [
+                    {
+                        "name": "report",
+                        "in": "path",
+                        "description": "Файл шаблона отчета в формате xls(x)",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "binary"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "columns - названия колонок из excel шаблона.\r\n           Если матчится, в значении название по русски. Если нет - там оригинальное название,\r\n           Несовпавшие названия можно получить из массива invalid.\r\n           В секции rows массив строк из файла.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Record updated."
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "id": {
+                                            "type": "string",
+                                            "example": "0b0e8c66-9356-47ad-90d9-e1d0504e6764"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "columns": {
+                                                    "properties": {
+                                                        "segment_name": {
+                                                            "type": "string",
+                                                            "example": "Название сегмента"
+                                                        },
+                                                        "creative_name": {
+                                                            "type": "string",
+                                                            "example": "Название объявления"
+                                                        },
+                                                        "date": {
+                                                            "type": "string",
+                                                            "example": "Дата"
+                                                        },
+                                                        "cost": {
+                                                            "type": "string",
+                                                            "example": "Расход"
+                                                        },
+                                                        "impressions": {
+                                                            "type": "string",
+                                                            "example": "Показы"
+                                                        },
+                                                        "clicks": {
+                                                            "type": "string",
+                                                            "example": "Клики"
+                                                        },
+                                                        "reach": {
+                                                            "type": "string",
+                                                            "example": "Охват"
+                                                        },
+                                                        "views": {
+                                                            "type": "string",
+                                                            "example": "Просмотры"
+                                                        },
+                                                        "25%_views": {
+                                                            "type": "string",
+                                                            "example": "Просмотры 25%"
+                                                        },
+                                                        "50%_views": {
+                                                            "type": "string",
+                                                            "example": "Просмотры 50%"
+                                                        },
+                                                        "75%_views": {
+                                                            "type": "string",
+                                                            "example": "Просмотры 75%"
+                                                        },
+                                                        "complete_views_bad": {
+                                                            "type": "string",
+                                                            "example": "complete_views_bad"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "rows": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "properties": {
+                                                            "segment_name": {
+                                                                "type": "string"
+                                                            },
+                                                            "creative_name": {
+                                                                "type": "string"
+                                                            },
+                                                            "date": {
+                                                                "type": "string"
+                                                            },
+                                                            "cost": {
+                                                                "type": "string"
+                                                            },
+                                                            "impressions": {
+                                                                "type": "string"
+                                                            },
+                                                            "clicks": {
+                                                                "type": "string"
+                                                            },
+                                                            "reach": {
+                                                                "type": "string"
+                                                            },
+                                                            "views": {
+                                                                "type": "string"
+                                                            },
+                                                            "25%_views": {
+                                                                "type": "string"
+                                                            },
+                                                            "50%_views": {
+                                                                "type": "string"
+                                                            },
+                                                            "75%_views": {
+                                                                "type": "string"
+                                                            },
+                                                            "complete_views_bad": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "invalid": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "complete_views_bad"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован"
+                    },
+                    "422": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "System error"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "422"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "platforms/custom/save": {
+            "post": {
+                "tags": [
+                    "Platforms"
+                ],
+                "summary": "Сохранение кастомного отчета",
+                "operationId": "saveReport",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "properties": {
+                                            "rows": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "segment_name": {
+                                                            "type": "string"
+                                                        },
+                                                        "creative_name": {
+                                                            "type": "string"
+                                                        },
+                                                        "date": {
+                                                            "type": "string"
+                                                        },
+                                                        "cost": {
+                                                            "type": "string"
+                                                        },
+                                                        "impressions": {
+                                                            "type": "string"
+                                                        },
+                                                        "clicks": {
+                                                            "type": "string"
+                                                        },
+                                                        "reach": {
+                                                            "type": "string"
+                                                        },
+                                                        "views": {
+                                                            "type": "string"
+                                                        },
+                                                        "25%_views": {
+                                                            "type": "string"
+                                                        },
+                                                        "50%_views": {
+                                                            "type": "string"
+                                                        },
+                                                        "75%_views": {
+                                                            "type": "string"
+                                                        },
+                                                        "complete_views_bad": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Record deleted."
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован"
+                    },
+                    "422": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "System error"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "422"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "platforms/custom/delete": {
+            "post": {
+                "tags": [
+                    "Platforms"
+                ],
+                "summary": "Удаление данных кастомного отчета\r\n                    App\\Http\\Controllers\\API\\Platforms\\CustomDataController::deleteReport()",
+                "operationId": "deleteReport",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "example": "914c8a10-7b8e-495f-a5f3-8dcc5e963817"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Record deleted."
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован"
+                    },
+                    "422": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "System error"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": "422"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/statistics": {
+            "post": {
+                "tags": [
+                    "Statistics"
+                ],
+                "summary": "Статистика клиентов по юзеру",
+                "description": "Получение детальной статистики по юзеру (все клиенты и сумма)",
+                "operationId": "index_user",
+                "requestBody": {
+                    "request": "IndexUsersRequest",
+                    "description": "Запрос статистики по юзеру",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [],
+                                "properties": {
+                                    "dateFrom": {
+                                        "type": "string",
+                                        "example": "2022-05-01"
+                                    },
+                                    "dateTo": {
+                                        "type": "string",
+                                        "example": "2022-05-30"
+                                    },
+                                    "clientName": {
+                                        "type": "string",
+                                        "example": "part_of_name"
+                                    },
+                                    "status": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "example": [
+                                                "soon",
+                                                "active",
+                                                "paused",
+                                                "stopped",
+                                                "archived"
+                                            ]
+                                        },
+                                        "collectionFormat": "multi"
+                                    },
+                                    "history": {
+                                        "type": "boolean",
+                                        "example": "true"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "Result object.",
+                                        "value": {
+                                            "success": true,
+                                            "data": {
+                                                "result": [
+                                                    {
+                                                        "id": "9c776c85-6cc7-4008-879d-7e93d703516c",
+                                                        "name": "Тестовый клиент",
+                                                        "statistics": {
+                                                            "bid": 0,
+                                                            "dailyBudget": 0,
+                                                            "weeklyBudget": 0,
+                                                            "lifetimeBudget": 0,
+                                                            "id": 0,
+                                                            "spend": 1454346.61,
+                                                            "impressions": 6196293,
+                                                            "clicks": 16122,
+                                                            "reach": 5752960,
+                                                            "videoViews": 1306023,
+                                                            "videoViews25p": 542929,
+                                                            "videoViews50p": 291618,
+                                                            "videoViews75p": 184098,
+                                                            "videoViews100p": 138878,
+                                                            "ctr": 0.26,
+                                                            "cpc": 90.21,
+                                                            "cpm": 234.71,
+                                                            "cpv": 1.11,
+                                                            "cpcv": 10.47
+                                                        },
+                                                        "analytics": null
+                                                    },
+                                                    {
+                                                        "id": "45c0c963-d483-49d3-a90a-e3c7820fbb41",
+                                                        "name": "Клиент №2",
+                                                        "statistics": {
+                                                            "bid": 0,
+                                                            "dailyBudget": 0,
+                                                            "weeklyBudget": 0,
+                                                            "lifetimeBudget": 0,
+                                                            "id": 0,
+                                                            "spend": 0,
+                                                            "impressions": 0,
+                                                            "clicks": 0,
+                                                            "reach": 0,
+                                                            "videoViews": 0,
+                                                            "videoViews25p": 0,
+                                                            "videoViews50p": 0,
+                                                            "videoViews75p": 0,
+                                                            "videoViews100p": 0,
+                                                            "ctr": 0,
+                                                            "cpc": 0,
+                                                            "cpm": 0,
+                                                            "cpv": 0,
+                                                            "cpcv": 0
+                                                        },
+                                                        "analytics": null
+                                                    }
+                                                ],
+                                                "total": {
+                                                    "bid": 0,
+                                                    "dailyBudget": 0,
+                                                    "weeklyBudget": 0,
+                                                    "lifetimeBudget": 0,
+                                                    "id": 0,
+                                                    "spend": 1454346.61,
+                                                    "impressions": 6196293,
+                                                    "clicks": 16122,
+                                                    "reach": 5752960,
+                                                    "videoViews": 1306023,
+                                                    "videoViews25p": 542929,
+                                                    "videoViews50p": 291618,
+                                                    "videoViews75p": 184098,
+                                                    "videoViews100p": 138878,
+                                                    "ctr": 0.26,
+                                                    "cpc": 90.21,
+                                                    "cpm": 234.71,
+                                                    "cpv": 1.11,
+                                                    "cpcv": 10.47
+                                                }
+                                            },
+                                            "message": "Statistics retrieved successfully."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/statistics/{client_id}": {
+            "post": {
+                "tags": [
+                    "Statistics"
+                ],
+                "summary": "Статистика позиций по клиенту",
+                "description": "Получение детальной статистики по клиенту (все проекты и сумма)",
+                "operationId": "index_clients",
+                "parameters": [
+                    {
+                        "name": "client_id",
+                        "in": "path",
+                        "description": "ID клиента",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "IndexClientsRequest",
+                    "description": "Запрос статистики по клиенту",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [],
+                                "properties": {
+                                    "dateFrom": {
+                                        "type": "string",
+                                        "example": "2022-05-01"
+                                    },
+                                    "dateTo": {
+                                        "type": "string",
+                                        "example": "2022-05-30"
+                                    },
+                                    "campaignName": {
+                                        "type": "string",
+                                        "example": "part_of_name"
+                                    },
+                                    "status": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "example": [
+                                                "soon",
+                                                "active",
+                                                "paused",
+                                                "stopped",
+                                                "archived"
+                                            ]
+                                        },
+                                        "collectionFormat": "multi"
+                                    },
+                                    "history": {
+                                        "type": "boolean",
+                                        "example": "true"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "Result object.",
+                                        "value": {
+                                            "success": true,
+                                            "data": {
+                                                "result": [
+                                                    {
+                                                        "id": "f125facc-75eb-4af4-a404-02c0d5897039",
+                                                        "name": "Тестовый проект",
+                                                        "statistics": {
+                                                            "bid": 0,
+                                                            "dailyBudget": 0,
+                                                            "weeklyBudget": 0,
+                                                            "lifetimeBudget": 0,
+                                                            "id": 0,
+                                                            "spend": 1454346.61,
+                                                            "impressions": 6196293,
+                                                            "clicks": 16122,
+                                                            "reach": 5752960,
+                                                            "videoViews": 1306023,
+                                                            "videoViews25p": 542929,
+                                                            "videoViews50p": 291618,
+                                                            "videoViews75p": 184098,
+                                                            "videoViews100p": 138878,
+                                                            "ctr": 0.26,
+                                                            "cpc": 90.21,
+                                                            "cpm": 234.71,
+                                                            "cpv": 1.11,
+                                                            "cpcv": 10.47
+                                                        },
+                                                        "analytics": null,
+                                                        "status": [
+                                                            "20d37a05-d51b-4d86-9642-ec84ec994a69",
+                                                            "Активна",
+                                                            "active"
+                                                        ]
+                                                    }
+                                                ],
+                                                "total": {
+                                                    "bid": 0,
+                                                    "dailyBudget": 0,
+                                                    "weeklyBudget": 0,
+                                                    "lifetimeBudget": 0,
+                                                    "id": 0,
+                                                    "spend": 1454346.61,
+                                                    "impressions": 6196293,
+                                                    "clicks": 16122,
+                                                    "reach": 5752960,
+                                                    "videoViews": 1306023,
+                                                    "videoViews25p": 542929,
+                                                    "videoViews50p": 291618,
+                                                    "videoViews75p": 184098,
+                                                    "videoViews100p": 138878,
+                                                    "ctr": 0.26,
+                                                    "cpc": 90.21,
+                                                    "cpm": 234.71,
+                                                    "cpv": 1.11,
+                                                    "cpcv": 10.47
+                                                }
+                                            },
+                                            "message": "Statistics retrieved successfully."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/statistics/{client_id}/{project_id}": {
+            "post": {
+                "tags": [
+                    "Statistics"
+                ],
+                "summary": "Статистика позиций по проекту",
+                "description": "Получение детальной статистики по проекту (все позиции и сумма)",
+                "operationId": "index_campaigns",
+                "parameters": [
+                    {
+                        "name": "client_id",
+                        "in": "path",
+                        "description": "ID клиента",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "project_id",
+                        "in": "path",
+                        "description": "ID проекта",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "IndexCampaignsRequest",
+                    "description": "Запрос статистики по проекту",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [],
+                                "properties": {
+                                    "dateFrom": {
+                                        "type": "string",
+                                        "example": "2022-05-01"
+                                    },
+                                    "dateTo": {
+                                        "type": "string",
+                                        "example": "2022-05-30"
+                                    },
+                                    "hostName": {
+                                        "type": "string",
+                                        "example": "part_of_name"
+                                    },
+                                    "status": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "example": [
+                                                "soon",
+                                                "active",
+                                                "paused",
+                                                "stopped",
+                                                "archived"
+                                            ]
+                                        },
+                                        "collectionFormat": "multi"
+                                    },
+                                    "history": {
+                                        "type": "boolean",
+                                        "example": "true"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "Result object.",
+                                        "value": {
+                                            "success": true,
+                                            "data": {
+                                                "result": [
+                                                    {
+                                                        "id": "61c43289-9d98-4ec9-a565-bc6e2b6ff1f0",
+                                                        "name": "Тест vk Stories (#70)",
+                                                        "statistics": {
+                                                            "bid": 0,
+                                                            "dailyBudget": 0,
+                                                            "weeklyBudget": 0,
+                                                            "lifetimeBudget": 200000,
+                                                            "id": "#70",
+                                                            "spend": 46666.67,
+                                                            "impressions": 294667,
+                                                            "clicks": 448,
+                                                            "reach": 289260,
+                                                            "videoViews": 0,
+                                                            "videoViews25p": 0,
+                                                            "videoViews50p": 0,
+                                                            "videoViews75p": 0,
+                                                            "videoViews100p": 0,
+                                                            "ctr": 0.15,
+                                                            "cpc": 104.17,
+                                                            "cpm": 158.37,
+                                                            "cpv": 0,
+                                                            "cpcv": 0
+                                                        },
+                                                        "analytics": null,
+                                                        "platform": {
+                                                            "id": "9d7ae7c3-a9fa-4094-8789-556178d6dd19",
+                                                            "name": "Вконтакте",
+                                                            "short_name": "vk"
+                                                        },
+                                                        "status": {
+                                                            "id": "d40fc872-74aa-49b9-8d1c-bc441672eb94",
+                                                            "name": "Завершена",
+                                                            "short_name": "stopped"
+                                                        }
+                                                    }
+                                                ],
+                                                "total": {
+                                                    "bid": 0,
+                                                    "dailyBudget": 0,
+                                                    "weeklyBudget": 0,
+                                                    "lifetimeBudget": 200000,
+                                                    "id": 0,
+                                                    "spend": 46666.67,
+                                                    "impressions": 294667,
+                                                    "clicks": 448,
+                                                    "reach": 289260,
+                                                    "videoViews": 0,
+                                                    "videoViews25p": 0,
+                                                    "videoViews50p": 0,
+                                                    "videoViews75p": 0,
+                                                    "videoViews100p": 0,
+                                                    "ctr": 0.15,
+                                                    "cpc": 104.17,
+                                                    "cpm": 158.37,
+                                                    "cpv": 0,
+                                                    "cpcv": 0
+                                                }
+                                            },
+                                            "message": "Statistics retrieved successfully."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/statistics/{client_id}/{project_id}/{position_id}": {
+            "post": {
+                "tags": [
+                    "Statistics"
+                ],
+                "summary": "Статистика кампаний по позиции",
+                "description": "Получение детальной статистики по позиции (все кампании и сумма)",
+                "operationId": "index_hosts",
+                "parameters": [
+                    {
+                        "name": "client_id",
+                        "in": "path",
+                        "description": "ID клиента",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "project_id",
+                        "in": "path",
+                        "description": "ID проекта",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "position_id",
+                        "in": "path",
+                        "description": "ID позиции",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "IndexHostsRequest",
+                    "description": "Запрос статистики по позиции",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [],
+                                "properties": {
+                                    "dateFrom": {
+                                        "type": "string",
+                                        "example": "2022-05-01"
+                                    },
+                                    "dateTo": {
+                                        "type": "string",
+                                        "example": "2022-05-30"
+                                    },
+                                    "auditoryName": {
+                                        "type": "string",
+                                        "example": "part_of_name"
+                                    },
+                                    "status": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "example": [
+                                                "soon",
+                                                "active",
+                                                "paused",
+                                                "stopped",
+                                                "archived"
+                                            ]
+                                        },
+                                        "collectionFormat": "multi"
+                                    },
+                                    "history": {
+                                        "type": "boolean",
+                                        "example": "true"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "Result object.",
+                                        "value": {
+                                            "success": true,
+                                            "data": {
+                                                "result": [
+                                                    {
+                                                        "id": "b3f90e16-d82e-4471-a584-7a3d85389f66",
+                                                        "name": "#98__Uzzz_VK_Stories_CPM_May-June'22_Msk-Spb",
+                                                        "day_limit": 8000,
+                                                        "all_limit": 163200,
+                                                        "auditoryId": "1023543425",
+                                                        "statistics": {
+                                                            "bid": null,
+                                                            "dailyBudget": 8000,
+                                                            "weeklyBudget": null,
+                                                            "lifetimeBudget": 163200,
+                                                            "id": "1023543425",
+                                                            "spend": 10953.13,
+                                                            "impressions": 67443,
+                                                            "clicks": 68,
+                                                            "reach": 65958,
+                                                            "unique_video_views": 0,
+                                                            "unique_video_views_25p": 0,
+                                                            "unique_video_views_50p": 0,
+                                                            "unique_video_views_75p": 0,
+                                                            "unique_video_views_100p": 0,
+                                                            "ctr": 0.1,
+                                                            "cpc": 161.08,
+                                                            "cpm": 162.41,
+                                                            "cpv": 0,
+                                                            "cpcv": 0
+                                                        },
+                                                        "analytics": null,
+                                                        "platform": {
+                                                            "id": "9d7ae7c3-a9fa-4094-8789-556178d6dd19",
+                                                            "name": "Вконтакте",
+                                                            "short_name": "vk"
+                                                        },
+                                                        "status": {
+                                                            "id": "d40fc872-74aa-49b9-8d1c-bc441672eb94",
+                                                            "name": "Завершена",
+                                                            "short_name": "stopped"
+                                                        }
+                                                    }
+                                                ],
+                                                "total": {
+                                                    "spend": 28703.13,
+                                                    "impressions": 201358,
+                                                    "clicks": 469,
+                                                    "reach": 195106,
+                                                    "unique_video_views": 0,
+                                                    "unique_video_views_25p": 0,
+                                                    "unique_video_views_50p": 0,
+                                                    "unique_video_views_75p": 0,
+                                                    "unique_video_views_100p": 0,
+                                                    "ctr": 0.23,
+                                                    "cpc": 61.2,
+                                                    "cpm": 142.55,
+                                                    "cpv": 0,
+                                                    "cpcv": 0
+                                                }
+                                            },
+                                            "message": "Statistics retrieved successfully."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/statistics/{client_id}/{project_id}/{position_id}/{campaign_id}": {
+            "post": {
+                "tags": [
+                    "Statistics"
+                ],
+                "summary": "Статистика объявлений по кампании",
+                "description": "Получение детальной статистики по кампании (все объявления и сумма)",
+                "operationId": "index_auditories",
+                "parameters": [
+                    {
+                        "name": "client_id",
+                        "in": "path",
+                        "description": "ID клиента",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "project_id",
+                        "in": "path",
+                        "description": "ID проекта",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "position_id",
+                        "in": "path",
+                        "description": "ID позиции",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "campaign_id",
+                        "in": "path",
+                        "description": "ID кампании",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "IndexAuditoriesRequest",
+                    "description": "Запрос статистики по кампании",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [],
+                                "properties": {
+                                    "dateFrom": {
+                                        "type": "string",
+                                        "example": "2022-05-01"
+                                    },
+                                    "dateTo": {
+                                        "type": "string",
+                                        "example": "2022-05-30"
+                                    },
+                                    "adName": {
+                                        "type": "string",
+                                        "example": "part_of_name"
+                                    },
+                                    "status": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "example": [
+                                                "soon",
+                                                "active",
+                                                "paused",
+                                                "stopped",
+                                                "archived"
+                                            ]
+                                        },
+                                        "collectionFormat": "multi"
+                                    },
+                                    "history": {
+                                        "type": "boolean",
+                                        "example": "true"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "Result object.",
+                                        "value": {
+                                            "success": true,
+                                            "data": {
+                                                "result": [
+                                                    {
+                                                        "id": "7129528e-27a8-406e-8098-8bc2766fc70e",
+                                                        "name": "011|019|163|030__dop-v2 aud",
+                                                        "day_limit": null,
+                                                        "all_limit": null,
+                                                        "ad_id": "119960570",
+                                                        "statistics": {
+                                                            "bid": "192.00",
+                                                            "dailyBudget": null,
+                                                            "weeklyBudget": null,
+                                                            "lifetimeBudget": null,
+                                                            "id": "119960570",
+                                                            "spend": 252.47,
+                                                            "impressions": 1578,
+                                                            "clicks": 1,
+                                                            "reach": 1558,
+                                                            "videoViews": 0,
+                                                            "videoViews25p": 0,
+                                                            "videoViews50p": 0,
+                                                            "videoViews75p": 0,
+                                                            "videoViews100p": 0,
+                                                            "ctr": 0.06,
+                                                            "cpc": 252.47,
+                                                            "cpm": 159.99,
+                                                            "cpv": 0,
+                                                            "cpcv": 0
+                                                        },
+                                                        "analytics": null,
+                                                        "platform": {
+                                                            "id": "9d7ae7c3-a9fa-4094-8789-556178d6dd19",
+                                                            "name": "Вконтакте",
+                                                            "short_name": "vk"
+                                                        },
+                                                        "status": {
+                                                            "id": "d40fc872-74aa-49b9-8d1c-bc441672eb94",
+                                                            "name": "Завершена",
+                                                            "short_name": "stopped"
+                                                        }
+                                                    },
+                                                    {
+                                                        "id": "17d10182-3f79-41c6-835b-1decfc74609e",
+                                                        "name": "011|019|531|034__dop-5 baza",
+                                                        "day_limit": null,
+                                                        "all_limit": null,
+                                                        "ad_id": "120109272",
+                                                        "statistics": {
+                                                            "bid": "192.00",
+                                                            "dailyBudget": null,
+                                                            "weeklyBudget": null,
+                                                            "lifetimeBudget": null,
+                                                            "id": "120109272",
+                                                            "spend": 15.03,
+                                                            "impressions": 95,
+                                                            "clicks": 0,
+                                                            "reach": 94,
+                                                            "videoViews": 0,
+                                                            "videoViews25p": 0,
+                                                            "videoViews50p": 0,
+                                                            "videoViews75p": 0,
+                                                            "videoViews100p": 0,
+                                                            "ctr": 0,
+                                                            "cpc": 0,
+                                                            "cpm": 158.21,
+                                                            "cpv": 0,
+                                                            "cpcv": 0
+                                                        },
+                                                        "analytics": null,
+                                                        "platform": {
+                                                            "id": "9d7ae7c3-a9fa-4094-8789-556178d6dd19",
+                                                            "name": "Вконтакте",
+                                                            "short_name": "vk"
+                                                        },
+                                                        "status": {
+                                                            "id": "d40fc872-74aa-49b9-8d1c-bc441672eb94",
+                                                            "name": "Завершена",
+                                                            "short_name": "stopped"
+                                                        }
+                                                    }
+                                                ],
+                                                "total": {
+                                                    "bid": null,
+                                                    "dailyBudget": null,
+                                                    "weeklyBudget": null,
+                                                    "lifetimeBudget": null,
+                                                    "id": null,
+                                                    "spend": 14515.33,
+                                                    "impressions": 90771,
+                                                    "clicks": 90,
+                                                    "reach": 88013,
+                                                    "videoViews": 0,
+                                                    "videoViews25p": 0,
+                                                    "videoViews50p": 0,
+                                                    "videoViews75p": 0,
+                                                    "videoViews100p": 0,
+                                                    "ctr": 0.1,
+                                                    "cpc": 161.28,
+                                                    "cpm": 159.91,
+                                                    "cpv": 0,
+                                                    "cpcv": 0
+                                                }
+                                            },
+                                            "message": "Statistics retrieved successfully."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "bearerFormat": "jwt",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "security": [
+        {
+            "bearerAuth": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "Groups",
+            "description": "Группировка App\\Http\\Controllers\\API\\Groups"
+        },
+        {
+            "name": "Clients",
+            "description": "Кампании App\\Http\\Controllers\\API\\Client\\Campaign"
+        },
+        {
+            "name": "Platforms",
+            "description": "Позиции (платформы) App\\Http\\Controllers\\API\\Platforms"
+        },
+        {
+            "name": "Sknt_link",
+            "description": "Генерация sknt links"
+        },
+        {
+            "name": "Statistics",
+            "description": "Получение статистики"
+        }
+    ]
+}

@@ -1,0 +1,277 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Тестовое задание",
+        "version": "0.1"
+    },
+    "servers": [
+        {
+            "url": "http://test.api.inkz/api/v1/",
+            "description": "API для яблок"
+        }
+    ],
+    "paths": {
+        "/create": {
+            "post": {
+                "tags": [
+                    "Apples"
+                ],
+                "summary": "api\\controllers\\AppleController",
+                "description": "Сгенерирует случайное от 2 до 5 количество яблок",
+                "operationId": "apples-create",
+                "responses": {
+                    "200": {
+                        "description": "Вернет массив созданных объектов яблок",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string",
+                                                        "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                    },
+                                                    "color": {
+                                                        "type": "string",
+                                                        "example": "red"
+                                                    },
+                                                    "size": {
+                                                        "type": "int",
+                                                        "example": "100"
+                                                    },
+                                                    "status": {
+                                                        "type": "string",
+                                                        "example": "1"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован"
+                    }
+                }
+            }
+        },
+        "/fall": {
+            "put": {
+                "tags": [
+                    "Apples"
+                ],
+                "summary": "api\\controllers\\AppleController",
+                "description": "Изменит статус объекта на `на земле`",
+                "operationId": "apples-fall",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Вернет объект упавшего яблока",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                },
+                                                "color": {
+                                                    "type": "string",
+                                                    "example": "green"
+                                                },
+                                                "size": {
+                                                    "type": "int",
+                                                    "example": "100"
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "2"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован"
+                    }
+                }
+            }
+        },
+        "/eat": {
+            "put": {
+                "tags": [
+                    "Apples"
+                ],
+                "summary": "api\\controllers\\AppleController",
+                "description": "Уменьшит размер яблока на выбранную величину процентов",
+                "operationId": "apples-eat",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                    },
+                                    "percent": {
+                                        "type": "int",
+                                        "example": "10"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Вернет объект откушенного яблока",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                },
+                                                "color": {
+                                                    "type": "string",
+                                                    "example": "green"
+                                                },
+                                                "size": {
+                                                    "type": "int",
+                                                    "example": "90"
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "2"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован"
+                    }
+                }
+            }
+        },
+        "/delete": {
+            "delete": {
+                "tags": [
+                    "Apples"
+                ],
+                "summary": "api\\controllers\\AppleController",
+                "description": "Изменит статус объекта на 'удален'",
+                "operationId": "apples-delete",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Вернет объект удаленного яблока",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "621b0071-28de-40e8-930e-25308e345a05"
+                                                },
+                                                "color": {
+                                                    "type": "string",
+                                                    "example": "green"
+                                                },
+                                                "size": {
+                                                    "type": "int",
+                                                    "example": "50"
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "4"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Apples",
+            "description": "Яблоки"
+        }
+    ]
+}
